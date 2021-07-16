@@ -14,8 +14,6 @@ import fetchAxios from "../../main/useFetch";
 const DiaryPost = ({ diary, userInfo, fetchAllLoginDiary, fetchAllUnloginDiary }) => {
   const [myDiaries, setMyDiaries] = useState(null)
   const [onPublic, setOnPublic] = useState("");
-  const [onClick, setOnClick] = useState(false);
-  const [onMoment, setOnMoment] = useState(null);
 
   useEffect(() => {
     fetchAxios(userInfo)
@@ -56,16 +54,7 @@ const DiaryPost = ({ diary, userInfo, fetchAllLoginDiary, fetchAllUnloginDiary }
       )
     }
   }
-
-  useEffect(() => {
-    if (onMoment !== null) {
-      return setOnClick((prev) => setOnClick(!prev));
-    }
-  }, [onMoment]);
-
-  const handleMoment = (day) => {
-    setOnMoment(day)
-  }
+  console.log(myDiaries);
 
   return (
     <BoxContainer>
@@ -77,7 +66,7 @@ const DiaryPost = ({ diary, userInfo, fetchAllLoginDiary, fetchAllUnloginDiary }
           />
         </Div>
         <DiaryContainer>
-          {myDiaries && <MyCardList myDiaries={myDiaries} handleMoment={handleMoment} />}
+          {myDiaries && <MyCardList myDiaries={myDiaries} />}
         </DiaryContainer>
       </UserContentForm>
     </BoxContainer>

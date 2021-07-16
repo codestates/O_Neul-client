@@ -20,14 +20,12 @@ import { trash2 } from "react-icons-kit/feather/trash2";
 import axios from "axios";
 import moment from "moment";
 
-
 const MyCard = ({
   diary,
   removeDiary,
   removePublicDiary,
   userInfo,
   modalHandle,
-  handleMoment,
 }) => {
   const { faceIcons, weatherIcons } = icons;
   const { id, isPublic, date, feeling, text, weather } = diary;
@@ -55,7 +53,6 @@ const MyCard = ({
 
   const openModifyDiaryModal = () => {
     modalHandle(moment(date));
-    handleMoment(moment(date));
   };
 
   return (
